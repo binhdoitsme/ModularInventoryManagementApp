@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath>D:\VS_Project\ModularInventoryManagement\builds</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ModularInventoryManagement.Commons\ModularInventoryManagement.Commons.csproj" />
+    <ProjectReference Include="..\ModularInventoryManagement.Data\ModularInventoryManagement.Data.csproj" />
+    <ProjectReference Include="..\ModularInventoryManagement.Infrastructure\ModularInventoryManagement.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Business\" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+{
+    "ConnectionStrings": {
+        "InventoryManagement.Development": "Server=localhost;Port=3306;Database=inventory_management_development;Uid=inventorydevelopment;Pwd=123456789;",
+        "InventoryManagement.Release": ""
+    }
+}

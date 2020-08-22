@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="ModularInventoryManagement.OrderManagement.Views.Controls.PaymentMethodControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModularInventoryManagement.OrderManagement.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Loaded="OnLoaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height=".5*" />
+            <RowDefinition Height="4*" />
+        </Grid.RowDefinitions>
+        <Label FontSize="18" FontWeight="SemiBold" Grid.Row="0" VerticalContentAlignment="Center" Padding="0,4">Checkout Method</Label>
+        <ComboBox Grid.Row="1" VerticalContentAlignment="Center" 
+                  x:Name="CheckoutMethodSelect"
+                  Padding="4,0" FontSize="14" 
+                  SelectedValuePath="Tag">
+            <ComboBoxItem Tag="0">Cash</ComboBoxItem>
+            <ComboBoxItem Tag="1">Credit/Debit Card</ComboBoxItem>
+        </ComboBox>
+        <StackPanel x:Name="CashPaymentMethod" Grid.Row="3">
+            <Label FontSize="16" Padding="0,4" FontWeight="SemiBold">Paid amount</Label>
+            <TextBox x:Name="PaidAmount" FontSize="24" 
+                     HorizontalContentAlignment="Right"
+                     Text="{Binding Instance.PaidAmount, Mode=TwoWay, 
+                            StringFormat={}{0:#,##0},
+                            UpdateSourceTrigger=PropertyChanged}"
+                     TextChanged="PaidAmount_TextChanged"/>
+
+            <TextBlock FontSize="20" FontWeight="SemiBold" Margin="0,8,0,0">Return</TextBlock>
+            <TextBlock FontSize="36" FontWeight="SemiBold"
+                       HorizontalAlignment="Right" 
+                       Text="{Binding Instance.Returned, Mode=OneWay, StringFormat={}{0:#,##0}}"/>
+        </StackPanel>
+        <StackPanel x:Name="CardPaymentMethod" Grid.Row="3" Visibility="Collapsed">
+            <Label FontSize="16" Padding="0,4" FontWeight="SemiBold">Transaction ID</Label>
+            <TextBox x:Name="PaymentId" FontSize="24" HorizontalContentAlignment="Right" />
+        </StackPanel>
+    </Grid>
+</UserControl>
